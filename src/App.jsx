@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   ScanLine,
 } from "lucide-react";
-import logo from "./assets/logo.png";
+import logo from "./assets/logo.PNG";
 import "./App.css";
 
 function App() {
