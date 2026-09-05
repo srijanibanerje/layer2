@@ -18,7 +18,18 @@ import "./App.css";
 
 function App() {
   const [activeStatus, setActiveStatus] = useState("prompt");
+   const [showAddress, setShowAddress] = useState(false);
+  const [copied, setCopied] = useState(false);
 
+  const contractAddress = "0x57e5cb096c9578fad39985a6264c8f256ca60888";
+   const copyAddress = async () => {
+    await navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
+  };
   const nodes = [
     {
       id: "prompt",
@@ -27,13 +38,13 @@ function App() {
       copy: "Describe your intent in natural language.",
       statusTitle: "PROMPT RECEIVED",
       statusCopy:
-        "The system interprets your natural-language request and prepares it for the DeFAI agent.",
+        "The system interprets your natural-language request and prepares it for the Defi.AI agent.",
     },
     {
       id: "agent",
       icon: <Bot size={18} />,
       title: "AI Agent",
-      copy: "The DeFAI agent analyzes intent and execution requirements.",
+      copy: "The Defi.AI agent analyzes intent and execution requirements.",
       statusTitle: "AGENT ACTIVE",
       statusCopy:
         "The AI agent evaluates the request and determines the optimal DeFi execution strategy.",
@@ -82,7 +93,7 @@ function App() {
       <header className="topbar">
         <div className="site-frame topbar-inner">
           <a href="#top" className="brand-link">
-            <img src={logo} alt="LS2 DEFAI" className="brand-logo" />
+            <img src={logo} alt="LS2 Defi.AI" className="brand-logo" />
           </a>
           <nav className="desktop-nav">
             <a href="#architecture" className="nav-link">
@@ -119,7 +130,7 @@ function App() {
             <div className="reveal eyebrow-row">
               <span className="signal-line"></span>
 
-              <p className="eyebrow">LS2 / DEFAI PROTOCOL</p>
+              <p className="eyebrow">LS2 / DEFI.AI PROTOCOL</p>
             </div>
 
             <h1 className="hero-title reveal delay-1">
@@ -129,7 +140,7 @@ function App() {
             </h1>
 
             <p className="hero-description reveal delay-2">
-              LS2 DeFAI combines autonomous AI agents with decentralized
+              LS2 Defi.AI combines autonomous AI agents with decentralized
               exchange infrastructure to make complex DeFi strategies easier to
               execute, automate and govern.
             </p>
@@ -189,7 +200,7 @@ function App() {
             <h2>From intent to execution.</h2>
 
             <p>
-              LS2 DeFAI turns natural-language financial intent into a
+              LS2 Defi.AI turns natural-language financial intent into a
               structured execution flow connecting AI agents, decentralized
               liquidity, yield strategies and governance.
             </p>
@@ -197,7 +208,7 @@ function App() {
 
           <div className="system-panel">
             <div className="system-panel-header">
-              <p className="flow-label mono">DEFAI EXECUTION FLOW</p>
+              <p className="flow-label mono">DEFI.AI EXECUTION FLOW</p>
 
               <span className="system-status mono">
                 <span className="status-dot"></span>
@@ -330,7 +341,7 @@ function App() {
                   <h3>Premium Subscription</h3>
 
                   <p>
-                    LS2 can provide access to advanced DeFAI agent capabilities
+                    LS2 can provide access to advanced Defi.AI agent capabilities
                     and premium features.
                   </p>
                 </div>
@@ -427,19 +438,54 @@ function App() {
           </div>
         </section>
       </main>
+       <div className="contract-floating">
+
+      {/* Address popup */}
+      <div
+        className={`contract-address-box ${
+          showAddress ? "show" : ""
+        }`}
+      >
+        <span className="address-text">
+          {contractAddress}
+        </span>
+
+        <button
+          className="copy-address-btn"
+          onClick={copyAddress}
+        >
+          <i className="fa-regular fa-copy"></i>
+          {copied ? "Copied" : "Copy"}
+        </button>
+      </div>
+
+      {/* Contract button */}
+      <button
+        className="contract-floating-btn"
+        onClick={() => setShowAddress(!showAddress)}
+      >
+        <i className="fa-solid fa-file-contract"></i>
+        <span>Contract Address</span>
+      </button>
+
+    </div>
 
       {/* ================= FOOTER ================= */}
 
       <footer className="site-frame section-rule footer">
         <a href="#top" className="brand-link">
-            <img src={logo} alt="LS2 DEFAI" className="brand-logo" />
+            <img src={logo} alt="LS2 DEFI.AI" className="brand-logo" />
           </a>
           
-
-        <p className="footer-disclaimer">
+             
+        {/* <p className="footer-disclaimer">
           DeFi involves risk. Protocol information is provided for informational
           purposes only and does not constitute financial advice.
-        </p>
+        </p> */}
+        <div className="footer-disclaimer"> <p>Follow us on</p> <div className="social-links">
+         <a href="https://t.me/layersecurity2" target="_blank" rel="noopener noreferrer" aria-label="Telegram" >
+          <i class="fa-brands fa-telegram"></i> </a> 
+          <a href="https://x.com/LayerSecurity2" target="_blank" rel="noopener noreferrer" aria-label="Twitter" > <i className="fab fa-twitter"></i> </a> </div> </div>
       </footer>
     </div>
   );
