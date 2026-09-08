@@ -131,6 +131,7 @@ function App() {
               <span className="signal-line"></span>
 
               <p className="eyebrow">LS2 / DEFI.AI PROTOCOL</p>
+              
             </div>
 
             <h1 className="hero-title reveal delay-1">
@@ -142,21 +143,59 @@ function App() {
             <p className="hero-description reveal delay-2">
               LS2 Defi.AI combines autonomous AI agents with decentralized
               exchange infrastructure to make complex DeFi strategies easier to
-              execute, automate and govern.
+              execute, automate and govern. Layer security 2 (LS2) token is running on Binance smart chain, low transaction fee, fast transfer.
             </p>
 
             <div className="hero-actions reveal delay-3">
-              <a href="#architecture" className="terminal-button hero-button">
+              {/* <a href="#architecture" className="terminal-button hero-button">
                 <span>Explore Architecture</span>
 
                 <Orbit size={18} />
-              </a>
+              </a> */}
 
               <a href="#whitepaper" className="terminal-button hero-button">
                 <span>Read Whitepaper</span>
 
                 <FileText size={17} />
               </a>
+             <a
+  href="#!"
+  className="terminal-button hero-button"
+  onClick={(e) => {
+    e.preventDefault();
+    setShowAddress((prev) => !prev);
+  }}
+>
+  <span>Token Contract Address</span>
+  <FileText size={17} />
+</a>
+
+<div
+  className={`contract-address-box ${
+    showAddress ? "show" : ""
+  }`}
+>
+  {/* <span className="address-text">
+    {contractAddress}
+  </span> */}
+  <span className="address-text w-25">
+  <span className="d-none d-md-inline">
+    {contractAddress}
+  </span>
+
+  <span className="d-inline d-md-none">
+    {contractAddress.slice(0, 25)}...
+  </span>
+</span>
+
+  <button
+    className="copy-address-btn"
+    onClick={copyAddress}
+  >
+    <i className="fa-regular fa-copy"></i>
+    {copied ? "Copied" : "Copy"}
+  </button>
+</div>
             </div>
           </div>
         </section>
@@ -440,34 +479,6 @@ function App() {
       </main>
        <div className="contract-floating">
 
-      {/* Address popup */}
-      <div
-        className={`contract-address-box ${
-          showAddress ? "show" : ""
-        }`}
-      >
-        <span className="address-text">
-          {contractAddress}
-        </span>
-
-        <button
-          className="copy-address-btn"
-          onClick={copyAddress}
-        >
-          <i className="fa-regular fa-copy"></i>
-          {copied ? "Copied" : "Copy"}
-        </button>
-      </div>
-
-      {/* Contract button */}
-      <button
-        className="contract-floating-btn"
-        onClick={() => setShowAddress(!showAddress)}
-      >
-        <i className="fa-solid fa-file-contract"></i>
-        <span>Contract Address</span>
-      </button>
-
     </div>
 
       {/* ================= FOOTER ================= */}
@@ -485,7 +496,7 @@ function App() {
         <div className="footer-disclaimer"> <p>Follow us on</p> <div className="social-links">
          <a href="https://t.me/layersecurity2" target="_blank" rel="noopener noreferrer" aria-label="Telegram" >
           <i class="fa-brands fa-telegram"></i> </a> 
-          <a href="https://x.com/LayerSecurity2" target="_blank" rel="noopener noreferrer" aria-label="Twitter" > <i className="fab fa-twitter"></i> </a> </div> </div>
+          <a href="https://x.com/LayerSecurity2" target="_blank" rel="noopener noreferrer" aria-label="Twitter" > <i className="fa-brands fa-x-twitter"></i> </a> </div> </div>
       </footer>
     </div>
   );
