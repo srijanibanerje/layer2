@@ -1427,3 +1427,151 @@ a {
     max-width: 100%;
   }
 }
+
+/* Contract Card */
+
+
+
+/* =========================
+   CONTRACT CARD
+========================= */
+
+.contract-card {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(72, 214, 255, 0.22);
+  border-radius: 10px;
+
+  background: rgba(5, 20, 38, 0.65);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 20px rgba(0, 170, 255, 0.05),
+    inset 0 0 20px rgba(0, 170, 255, 0.025);
+
+  transition: all 0.3s ease;
+}
+
+.contract-card:hover {
+  border-color: rgba(72, 214, 255, 0.45);
+
+  box-shadow:
+    0 0 25px rgba(0, 170, 255, 0.09),
+    inset 0 0 20px rgba(0, 170, 255, 0.03);
+}
+
+
+/* Title */
+
+.contract-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 8px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: rgba(220, 240, 255, 0.7);
+
+  letter-spacing: 0.3px;
+}
+
+
+/* Small glowing dot */
+
+.contract-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #55dfff;
+
+  box-shadow:
+    0 0 6px rgba(85, 223, 255, 0.9),
+    0 0 12px rgba(85, 223, 255, 0.4);
+}
+
+
+/* Address + Copy */
+
+.contract-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 9px 10px;
+
+  border-radius: 7px;
+
+  background: rgba(0, 0, 0, 0.22);
+}
+
+
+/* Address */
+
+.address-text {
+  min-width: 0;
+
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #000000;
+
+  letter-spacing: 0.2px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* Copy button */
+
+.copy-address-btn {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 11px;
+
+  border: 1px solid rgba(72, 214, 255, 0.25);
+  border-radius: 6px;
+
+  background: rgba(20, 100, 160, 0.25);
+
+  color: #dff7ff;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.copy-address-btn:hover {
+  background: rgba(20, 130, 200, 0.4);
+
+  border-color: rgba(72, 214, 255, 0.55);
+
+  transform: translateY(-1px);
+}
+
+.copy-address-btn i {
+  font-size: 12px;
+}

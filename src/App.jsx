@@ -147,37 +147,32 @@ function App() {
             </p>
 
             <div className="hero-actions reveal delay-3">
-              {/* <a href="#architecture" className="terminal-button hero-button">
+              <a href="#architecture" className="terminal-button hero-button">
                 <span>Explore Architecture</span>
 
                 <Orbit size={18} />
-              </a> */}
+              </a>
 
               <a href="#whitepaper" className="terminal-button hero-button">
                 <span>Read Whitepaper</span>
 
                 <FileText size={17} />
               </a>
-             <a
+ 
+
+{/* <a
   href="#!"
   className="terminal-button hero-button"
-  onClick={(e) => {
-    e.preventDefault();
-    setShowAddress((prev) => !prev);
-  }}
 >
   <span>Token Contract Address</span>
   <FileText size={17} />
 </a>
-
 <div
   className={`contract-address-box ${
     showAddress ? "show" : ""
   }`}
 >
-  {/* <span className="address-text">
-    {contractAddress}
-  </span> */}
+  
   <span className="address-text w-25">
   <span className="d-none d-md-inline">
     {contractAddress}
@@ -195,6 +190,39 @@ function App() {
     <i className="fa-regular fa-copy"></i>
     {copied ? "Copied" : "Copy"}
   </button>
+</div> */}
+<div className="hero-actions2">
+
+  {/* Contract Address */}
+  <div className="contract-card">
+
+    <div className="contract-title">
+      <span className="contract-dot"></span>
+      <span>Token Contract Address</span>
+    </div>
+
+    <div className="contract-content">
+      <span className="address-text">
+        <span className="d-none d-md-inline">
+          {contractAddress}
+        </span>
+
+        <span className="d-inline d-md-none">
+          {contractAddress.slice(0, 18)}...
+        </span>
+      </span>
+
+      <button
+        className="copy-address-btn"
+        onClick={copyAddress}
+      >
+        <i className="fa-regular fa-copy"></i>
+        <span>{copied ? "Copied" : "Copy"}</span>
+      </button>
+    </div>
+
+  </div>
+
 </div>
             </div>
           </div>
@@ -496,7 +524,8 @@ function App() {
         <div className="footer-disclaimer"> <p>Follow us on</p> <div className="social-links">
          <a href="https://t.me/layersecurity2" target="_blank" rel="noopener noreferrer" aria-label="Telegram" >
           <i class="fa-brands fa-telegram"></i> </a> 
-          <a href="https://x.com/LayerSecurity2" target="_blank" rel="noopener noreferrer" aria-label="Twitter" > <i className="fa-brands fa-x-twitter"></i> </a> </div> </div>
+          <a href="https://x.com/LayerSecurity2" target="_blank" rel="noopener noreferrer" aria-label="Twitter" > <i className="fa-brands fa-x-twitter
+          "></i> </a> </div> </div>
       </footer>
     </div>
   );
